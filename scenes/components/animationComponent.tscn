@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://5lur5mwisp6f"]
+
+[ext_resource type="Script" uid="uid://7chg1a6txyt8" path="res://scripts/animationComponent.gd" id="1_m12f8"]
+
+[node name="AnimationComponent" type="Node"]
+script = ExtResource("1_m12f8")
