@@ -1,20 +1,47 @@
-[gd_scene load_steps=3 format=3 uid="uid://nkq5dqt4rx8a"]
+[gd_scene load_steps=5 format=3 uid="uid://nkq5dqt4rx8a"]
 
 [ext_resource type="PackedScene" uid="uid://bgfm78ircoc56" path="res://scenes/doux.tscn" id="1_j2fkg"]
+[ext_resource type="Script" uid="uid://cgvb48vesijye" path="res://scripts/map_1.gd" id="1_ltmjf"]
+[ext_resource type="Script" uid="uid://cj1f7fgnkl58w" path="res://scripts/multiplayer_spawner.gd" id="2_ltmjf"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_j2fkg"]
 normal = Vector2(-0.0192272, -0.999815)
 
 [node name="Map1" type="Node"]
-
-[node name="doux" parent="." instance=ExtResource("1_j2fkg")]
-position = Vector2(108, 48)
-
-[node name="Camera2D" type="Camera2D" parent="doux"]
-zoom = Vector2(4, 4)
+script = ExtResource("1_ltmjf")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="CharacterBody2D"]
 position = Vector2(114, 104)
 shape = SubResource("WorldBoundaryShape2D_j2fkg")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 40.0
+offset_right = 63.0
+offset_bottom = 106.0
+
+[node name="host" type="Button" parent="Control/VBoxContainer"]
+layout_mode = 2
+text = "host"
+
+[node name="join" type="Button" parent="Control/VBoxContainer"]
+layout_mode = 2
+text = "join"
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
+_spawnable_scenes = PackedStringArray("uid://bgfm78ircoc56")
+spawn_path = NodePath("..")
+script = ExtResource("2_ltmjf")
+networkPlayer = ExtResource("1_j2fkg")
+
+[connection signal="pressed" from="Control/VBoxContainer/host" to="." method="_on_host_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/join" to="." method="_on_join_pressed"]
