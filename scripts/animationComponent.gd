@@ -14,12 +14,12 @@ func handleMoveAnimation(moveDirection: float) -> void:
 	handleHorizontalFlip(moveDirection)
 	
 	if moveDirection != 0:
-		sprite.play("run")
+		sprite.play(NetworkHandler.character + "_run")
 	else:
-		sprite.play("idle")
+		sprite.play(NetworkHandler.character + "_idle")
 
 func handleJumpAnimation(isJumping: bool, isFalling: bool) -> void:
 	if isJumping:
-		sprite.play("jump")
+		sprite.play(NetworkHandler.character + "_jump")
 	if isFalling:
-		sprite.play("fall")
+		sprite.play(NetworkHandler.character + "_fall")

@@ -3,6 +3,7 @@ extends Node
 const broadcastPort : int = 9000
 const gamePort      : int = 42069
 const broadcastRate : float = 1.0
+var character: String = "doux"
 
 var udp: PacketPeerUDP
 var timer: Timer

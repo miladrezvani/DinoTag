@@ -5,4 +5,5 @@ func _on_host_pressed() -> void:
 
 
 func _on_join_pressed() -> void:
+	NetworkHandler.character = "vita"
 	NetworkHandler.startClient()
