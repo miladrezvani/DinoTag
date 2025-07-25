@@ -11,6 +11,8 @@ normal = Vector2(-0.0192272, -0.999815)
 script = ExtResource("1_ltmjf")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+position = Vector2(2, 0)
+collision_layer = 2
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="CharacterBody2D"]
 position = Vector2(114, 104)

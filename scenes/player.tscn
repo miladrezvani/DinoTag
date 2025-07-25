@@ -502,6 +502,7 @@ properties/2/spawn = true
 properties/2/replication_mode = 1
 
 [node name="player" type="CharacterBody2D" node_paths=PackedStringArray("gravityComponent", "inputComponent", "movementComponent", "animationComponent", "jumpComponent")]
+collision_mask = 2
 script = ExtResource("3_uc3qm")
 gravityComponent = NodePath("GravityComponents")
 inputComponent = NodePath("InputComponent")
