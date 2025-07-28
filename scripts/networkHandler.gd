@@ -4,6 +4,7 @@ const broadcastPort : int = 9000
 const gamePort      : int = 42069
 const broadcastRate : float = 1.0
 var character: String = "doux"
+var mainFlag: String = ""
 
 var udp: PacketPeerUDP
 var timer: Timer
@@ -42,6 +43,7 @@ func onBroadcastTimer():
 		var writer = StreamPeerBuffer.new()
 		writer.put_u32(0xAFCE6434)
 		writer.put_u16(gamePort)
+		writer.put_string(mainFlag)
 		var packet = writer.data_array
 		udp.set_dest_address("255.255.255.255", broadcastPort)
 		udp.put_packet(packet)
@@ -55,6 +57,8 @@ func _process(_delta):
 		if reader.get_u32() != 0xAFCE6434:
 			continue
 		var port = reader.get_u16()
+		var flag = reader.get_string()
+		mainFlag = flag
 		emit_signal("hostFound", fromIp, port)
 
 func startServer():
@@ -67,6 +71,7 @@ func startServer():
 	hostFlag = true
 	var myId = multiplayer.get_unique_id()
 	multiplayer.emit_signal("peer_connected", myId)
+	mainFlag = str(myId)
 	print("Server started on port %d" % gamePort)
 	
 func startClient():
@@ -84,3 +89,16 @@ func onHostFound(ip:String, port:int):
 		return
 	multiplayer.multiplayer_peer = peer
 	print("Connected to server at %s:%d" % [ip, port])
+
+@rpc("any_peer")
+func handleFlag(playerFlag:bool, otherPlayerFlag:bool, player:String, otherPlayer:String):
+	if playerFlag and !otherPlayerFlag:
+		rpc("updateFlag", otherPlayer)
+	else:
+		rpc("updateFlag", player)
+		
+@rpc("any_peer")
+func updateFlag(newMainFlag:String) -> void:
+	print("Update the flag holder to : ", mainFlag)
+	mainFlag = newMainFlag
+	

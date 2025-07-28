@@ -1,4 +1,4 @@
-[gd_scene load_steps=70 format=3 uid="uid://bgfm78ircoc56"]
+[gd_scene load_steps=72 format=3 uid="uid://bgfm78ircoc56"]
 
 [ext_resource type="Texture2D" uid="uid://8g0ih0eo3yle" path="res://assets/players/DinoSprites - doux.png" id="1_r7o6q"]
 [ext_resource type="PackedScene" uid="uid://wegp82yyspj2" path="res://scenes/components/gravityComponents.tscn" id="3_0nhcl"]
@@ -10,6 +10,11 @@
 [ext_resource type="Texture2D" uid="uid://b5vej67lropf7" path="res://assets/players/DinoSprites - vita.png" id="5_y4r1p"]
 [ext_resource type="PackedScene" uid="uid://5lur5mwisp6f" path="res://scenes/components/animationComponent.tscn" id="6_anauh"]
 [ext_resource type="PackedScene" uid="uid://ddohs86ov35dm" path="res://scenes/components/jumpComponent.tscn" id="7_lma5f"]
+[ext_resource type="Texture2D" uid="uid://b6nt3twkiyjoh" path="res://icon.svg" id="11_d2wvv"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_y4r1p"]
+radius = 4.0
+height = 16.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uc3qm"]
 atlas = ExtResource("1_r7o6q")
@@ -503,6 +508,9 @@ properties/2/replication_mode = 1
 properties/3/path = NodePath("AnimatedSprite2D:frame")
 properties/3/spawn = true
 properties/3/replication_mode = 1
+properties/4/path = NodePath("Flag:visible")
+properties/4/spawn = true
+properties/4/replication_mode = 1
 
 [node name="player" type="CharacterBody2D" node_paths=PackedStringArray("gravityComponent", "inputComponent", "movementComponent", "animationComponent", "jumpComponent")]
 collision_mask = 2
@@ -513,11 +521,14 @@ movementComponent = NodePath("MovementComponent")
 animationComponent = NodePath("AnimationComponent")
 jumpComponent = NodePath("JumpComponent")
 
+[node name="AreaDetector" type="Area2D" parent="."]
+
+[node name="Collision" type="CollisionShape2D" parent="AreaDetector"]
+shape = SubResource("CapsuleShape2D_y4r1p")
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ih1m1")
-animation = &"vita_fall"
-frame = 2
-frame_progress = 0.884979
+animation = &"mort_run"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_0rt71")
@@ -538,3 +549,11 @@ replication_config = SubResource("SceneReplicationConfig_lma5f")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(4, 4)
+
+[node name="Flag" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(0, -11)
+scale = Vector2(0.03125, 0.03125)
+texture = ExtResource("11_d2wvv")
+
+[connection signal="area_exited" from="AreaDetector" to="." method="_on_area_detector_area_exited"]
