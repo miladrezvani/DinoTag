@@ -10,9 +10,13 @@ extends CharacterBody2D
 
 @onready var camera: Camera2D = $Camera2D
 @onready var flag: Sprite2D = $Flag
+@onready var joystick: Control = $CanvasLayer/HBoxContainer/Joystick
+
+
 func _ready() -> void:
 	if is_multiplayer_authority():
 		camera.make_current()
+		joystick.visible = true
 
 func _enter_tree() -> void:
 	set_multiplayer_authority(name.to_int())

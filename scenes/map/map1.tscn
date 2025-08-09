@@ -28,8 +28,9 @@ offset_bottom = 40.0
 layout_mode = 0
 offset_left = 20.0
 offset_top = 40.0
-offset_right = 63.0
-offset_bottom = 106.0
+offset_right = 243.0
+offset_bottom = 217.0
+scale = Vector2(5, 5)
 
 [node name="host" type="Button" parent="Control/VBoxContainer"]
 layout_mode = 2

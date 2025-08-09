@@ -1,4 +1,4 @@
-[gd_scene load_steps=72 format=3 uid="uid://bgfm78ircoc56"]
+[gd_scene load_steps=73 format=3 uid="uid://bgfm78ircoc56"]
 
 [ext_resource type="Texture2D" uid="uid://8g0ih0eo3yle" path="res://assets/players/DinoSprites - doux.png" id="1_r7o6q"]
 [ext_resource type="PackedScene" uid="uid://wegp82yyspj2" path="res://scenes/components/gravityComponents.tscn" id="3_0nhcl"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://b5vej67lropf7" path="res://assets/players/DinoSprites - vita.png" id="5_y4r1p"]
 [ext_resource type="PackedScene" uid="uid://5lur5mwisp6f" path="res://scenes/components/animationComponent.tscn" id="6_anauh"]
 [ext_resource type="PackedScene" uid="uid://ddohs86ov35dm" path="res://scenes/components/jumpComponent.tscn" id="7_lma5f"]
+[ext_resource type="PackedScene" uid="uid://bmcti7x8kjdhq" path="res://scenes/joystick.tscn" id="11_3v2ag"]
 [ext_resource type="Texture2D" uid="uid://b6nt3twkiyjoh" path="res://icon.svg" id="11_d2wvv"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_y4r1p"]
@@ -520,6 +521,23 @@ inputComponent = NodePath("InputComponent")
 movementComponent = NodePath("MovementComponent")
 animationComponent = NodePath("AnimationComponent")
 jumpComponent = NodePath("JumpComponent")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 106.0
+offset_top = -106.0
+offset_right = 106.0
+offset_bottom = -106.0
+grow_vertical = 0
+scale = Vector2(10, 10)
+
+[node name="Joystick" parent="CanvasLayer/HBoxContainer" instance=ExtResource("11_3v2ag")]
+visible = false
+layout_mode = 2
 
 [node name="AreaDetector" type="Area2D" parent="."]
 
