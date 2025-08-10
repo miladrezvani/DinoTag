@@ -1,0 +1,163 @@
+[gd_scene load_steps=8 format=3 uid="uid://dcbv8pq4fteko"]
+
+[ext_resource type="Script" uid="uid://b1ilttisngpj6" path="res://scripts/mainMenu.gd" id="1_rrmte"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_omghv"]
+bg_color = Color(0.992157, 0.780392, 0.376471, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.898039, 0.670588, 0.239216, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r8hr5"]
+bg_color = Color(0.262745, 0.490196, 0.627451, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.301961, 0.572549, 0.737255, 1)
+corner_radius_top_left = 10
+corner_radius_bottom_left = 10
+shadow_color = Color(0, 0, 0, 0.219608)
+shadow_size = 5
+shadow_offset = Vector2(-2, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g5gd7"]
+bg_color = Color(0.301961, 0.572549, 0.737255, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.262745, 0.490196, 0.627451, 1)
+corner_radius_top_left = 10
+corner_radius_bottom_left = 10
+shadow_color = Color(0, 0, 0, 0.219608)
+shadow_size = 5
+shadow_offset = Vector2(-2, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ynvfx"]
+bg_color = Color(0.627451, 0.262745, 0.270588, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.737255, 0.301961, 0.309804, 1)
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+shadow_color = Color(0, 0, 0, 0.219608)
+shadow_size = 5
+shadow_offset = Vector2(-2, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_box2j"]
+bg_color = Color(0.627451, 0.262745, 0.270588, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.737255, 0.301961, 0.309804, 1)
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+shadow_color = Color(0, 0, 0, 0.219608)
+shadow_size = 5
+shadow_offset = Vector2(-2, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rrmte"]
+bg_color = Color(0.737255, 0.301961, 0.309804, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.627451, 0.262745, 0.270588, 1)
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+shadow_color = Color(0, 0, 0, 0.219608)
+shadow_size = 5
+shadow_offset = Vector2(-2, 2)
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rrmte")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_omghv")
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -142.5
+offset_top = 161.0
+offset_right = 142.5
+offset_bottom = 260.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 72
+text = "DinoTag"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -221.0
+offset_top = -60.5
+offset_right = 221.0
+offset_bottom = 60.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 2
+
+[node name="Host" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 38
+theme_override_styles/hover = SubResource("StyleBoxFlat_r8hr5")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_r8hr5")
+theme_override_styles/normal = SubResource("StyleBoxFlat_g5gd7")
+text = "Host"
+
+[node name="Join" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 38
+theme_override_styles/hover = SubResource("StyleBoxFlat_ynvfx")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_box2j")
+theme_override_styles/normal = SubResource("StyleBoxFlat_rrmte")
+text = "Join"
+
+[node name="Version" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -25.5
+offset_top = -27.0
+offset_right = 25.5
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+text = "v1.0.0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="HBoxContainer/Host" to="." method="_on_host_pressed"]
+[connection signal="pressed" from="HBoxContainer/Join" to="." method="_on_join_pressed"]

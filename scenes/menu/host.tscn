@@ -1,0 +1,176 @@
+[gd_scene load_steps=10 format=3 uid="uid://dhm5dlyn1ie2m"]
+
+[ext_resource type="Script" uid="uid://cr6hgus04mcbw" path="res://scripts/hostMenu.gd" id="1_bepqs"]
+[ext_resource type="PackedScene" uid="uid://cx551yw7quygb" path="res://scenes/menu/characterSelection.tscn" id="2_pa6ly"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3h1cm"]
+bg_color = Color(0.623529, 0.737255, 0.301961, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.533333, 0.627451, 0.262745, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0rx4c"]
+bg_color = Color(0.898039, 0.670588, 0.239216, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.992157, 0.780392, 0.376471, 1)
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+shadow_color = Color(0, 0, 0, 0.219608)
+shadow_size = 5
+shadow_offset = Vector2(-2, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s5d5k"]
+bg_color = Color(0.992157, 0.780392, 0.376471, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.898039, 0.670588, 0.239216, 1)
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+shadow_color = Color(0, 0, 0, 0.219608)
+shadow_size = 5
+shadow_offset = Vector2(-2, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bepqs"]
+bg_color = Color(0.627451, 0.262745, 0.270588, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.737255, 0.301961, 0.309804, 1)
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+shadow_color = Color(0, 0, 0, 0.219608)
+shadow_size = 5
+shadow_offset = Vector2(-2, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pa6ly"]
+bg_color = Color(0.627451, 0.262745, 0.270588, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.737255, 0.301961, 0.309804, 1)
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+shadow_color = Color(0, 0, 0, 0.219608)
+shadow_size = 5
+shadow_offset = Vector2(-2, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8rdf3"]
+bg_color = Color(0.737255, 0.301961, 0.309804, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.627451, 0.262745, 0.270588, 1)
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+shadow_color = Color(0, 0, 0, 0.219608)
+shadow_size = 5
+shadow_offset = Vector2(-2, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yy554"]
+bg_color = Color(0.301961, 0.572549, 0.737255, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.533333, 0.627451, 0.262745, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_color = Color(0, 0, 0, 0.219608)
+shadow_offset = Vector2(-2, 2)
+
+[node name="Host" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bepqs")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_3h1cm")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -155.0
+offset_top = -184.0
+offset_right = -20.0
+offset_bottom = -20.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/separation = 2
+
+[node name="Start" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 38
+theme_override_styles/hover = SubResource("StyleBoxFlat_0rx4c")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_0rx4c")
+theme_override_styles/normal = SubResource("StyleBoxFlat_s5d5k")
+text = "Start"
+
+[node name="Back" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 38
+theme_override_styles/hover = SubResource("StyleBoxFlat_bepqs")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_pa6ly")
+theme_override_styles/normal = SubResource("StyleBoxFlat_8rdf3")
+text = "Back"
+
+[node name="Panel2" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_top = 9.0
+offset_right = 201.0
+offset_bottom = -9.0
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_yy554")
+
+[node name="PlayerID" type="Label" parent="."]
+layout_mode = 1
+offset_left = 6.0
+offset_top = 20.0
+offset_right = 198.0
+offset_bottom = 633.0
+theme_override_font_sizes/font_size = 19
+text = "Players ID"
+horizontal_alignment = 1
+
+[node name="CharacterSelection" parent="." instance=ExtResource("2_pa6ly")]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+offset_top = -105.0
+offset_bottom = -105.0
+grow_vertical = 0
+scale = Vector2(0.75, 0.75)
+
+[connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/Back" to="." method="_on_back_pressed"]

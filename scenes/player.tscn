@@ -546,7 +546,7 @@ shape = SubResource("CapsuleShape2D_y4r1p")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ih1m1")
-animation = &"mort_run"
+animation = &"tard_run"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_0rt71")

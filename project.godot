@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="DinoTag"
-run/main_scene="uid://nkq5dqt4rx8a"
+run/main_scene="uid://dcbv8pq4fteko"
 config/features=PackedStringArray("4.4", "Mobile")
 config/icon="res://icon.svg"
 

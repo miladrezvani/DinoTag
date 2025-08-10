@@ -1,0 +1,96 @@
+[gd_scene load_steps=7 format=3 uid="uid://ds8x6oe3f5qir"]
+
+[ext_resource type="Script" uid="uid://be88c6rj4l8g3" path="res://scripts/joinMenu.gd" id="1_t0nfr"]
+[ext_resource type="PackedScene" uid="uid://cx551yw7quygb" path="res://scenes/menu/characterSelection.tscn" id="2_71f3q"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kvpep"]
+bg_color = Color(0.992157, 0.780392, 0.376471, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.898039, 0.670588, 0.239216, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t0nfr"]
+bg_color = Color(0.627451, 0.262745, 0.270588, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.898039, 0.670588, 0.239216, 1)
+shadow_color = Color(0, 0, 0, 0.219608)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8uup4"]
+bg_color = Color(0.627451, 0.262745, 0.270588, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.898039, 0.670588, 0.239216, 1)
+shadow_color = Color(0, 0, 0, 0.219608)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v0upx"]
+bg_color = Color(0.737255, 0.301961, 0.309804, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.898039, 0.670588, 0.239216, 1)
+shadow_color = Color(0, 0, 0, 0.219608)
+
+[node name="Join" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_t0nfr")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_kvpep")
+
+[node name="Back" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -71.0
+offset_bottom = 70.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 38
+theme_override_styles/hover = SubResource("StyleBoxFlat_t0nfr")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_8uup4")
+theme_override_styles/normal = SubResource("StyleBoxFlat_v0upx")
+text = "<"
+
+[node name="Status" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -58.0
+offset_right = 20.0
+offset_bottom = -35.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 20
+
+[node name="CharacterSelection" parent="." instance=ExtResource("2_71f3q")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+
+[connection signal="pressed" from="Back" to="." method="_on_back_pressed"]

@@ -1,0 +1,111 @@
+[gd_scene load_steps=18 format=3 uid="uid://cx551yw7quygb"]
+
+[ext_resource type="Script" uid="uid://chgd8wcti1brv" path="res://scripts/characterSelection.gd" id="1_fu5pc"]
+[ext_resource type="Texture2D" uid="uid://8g0ih0eo3yle" path="res://assets/players/DinoSprites - doux.png" id="1_h0ef3"]
+[ext_resource type="Texture2D" uid="uid://bifsfnht7aptu" path="res://assets/players/DinoSprites - mort.png" id="2_fu5pc"]
+[ext_resource type="Texture2D" uid="uid://b4rytt64fokgx" path="res://assets/players/DinoSprites - tard.png" id="3_sgbt3"]
+[ext_resource type="Texture2D" uid="uid://b5vej67lropf7" path="res://assets/players/DinoSprites - vita.png" id="4_saqcc"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gvaei"]
+texture = ExtResource("1_h0ef3")
+region_rect = Rect2(48, 0, 24, 24)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l6c5g"]
+texture = ExtResource("1_h0ef3")
+region_rect = Rect2(336, 0, 24, 24)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ellca"]
+texture = ExtResource("1_h0ef3")
+region_rect = Rect2(0, 0, 24, 24)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_stlht"]
+texture = ExtResource("2_fu5pc")
+region_rect = Rect2(48, 0, 24, 24)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l8fff"]
+texture = ExtResource("2_fu5pc")
+region_rect = Rect2(336, 0, 24, 24)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_j0jdu"]
+texture = ExtResource("2_fu5pc")
+region_rect = Rect2(0, 0, 24, 24)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fkyo3"]
+texture = ExtResource("3_sgbt3")
+region_rect = Rect2(48, 0, 24, 24)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_oiu1n"]
+texture = ExtResource("3_sgbt3")
+region_rect = Rect2(336, 0, 24, 24)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cngam"]
+texture = ExtResource("3_sgbt3")
+region_rect = Rect2(0, 0, 24, 24)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6qubm"]
+texture = ExtResource("4_saqcc")
+region_rect = Rect2(48, 0, 24, 24)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_055eo"]
+texture = ExtResource("4_saqcc")
+region_rect = Rect2(336, 0, 24, 24)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qievj"]
+texture = ExtResource("4_saqcc")
+region_rect = Rect2(0, 0, 24, 24)
+
+[node name="CharacterSelection" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fu5pc")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -480.0
+offset_top = -120.0
+offset_right = 480.0
+offset_bottom = 120.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="doux" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/hover = SubResource("StyleBoxTexture_gvaei")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_l6c5g")
+theme_override_styles/normal = SubResource("StyleBoxTexture_ellca")
+
+[node name="mort" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/hover = SubResource("StyleBoxTexture_stlht")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_l8fff")
+theme_override_styles/normal = SubResource("StyleBoxTexture_j0jdu")
+
+[node name="tard" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/hover = SubResource("StyleBoxTexture_fkyo3")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_oiu1n")
+theme_override_styles/normal = SubResource("StyleBoxTexture_cngam")
+
+[node name="vita" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/hover = SubResource("StyleBoxTexture_6qubm")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_055eo")
+theme_override_styles/normal = SubResource("StyleBoxTexture_qievj")
+
+[connection signal="pressed" from="HBoxContainer/doux" to="." method="_on_doux_pressed"]
+[connection signal="pressed" from="HBoxContainer/mort" to="." method="_on_mort_pressed"]
+[connection signal="pressed" from="HBoxContainer/tard" to="." method="_on_tard_pressed"]
+[connection signal="pressed" from="HBoxContainer/vita" to="." method="_on_vita_pressed"]
