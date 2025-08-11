@@ -1,4 +1,4 @@
-[gd_scene load_steps=73 format=3 uid="uid://bgfm78ircoc56"]
+[gd_scene load_steps=75 format=3 uid="uid://bgfm78ircoc56"]
 
 [ext_resource type="Texture2D" uid="uid://8g0ih0eo3yle" path="res://assets/players/DinoSprites - doux.png" id="1_r7o6q"]
 [ext_resource type="PackedScene" uid="uid://wegp82yyspj2" path="res://scenes/components/gravityComponents.tscn" id="3_0nhcl"]
@@ -12,6 +12,14 @@
 [ext_resource type="PackedScene" uid="uid://ddohs86ov35dm" path="res://scenes/components/jumpComponent.tscn" id="7_lma5f"]
 [ext_resource type="PackedScene" uid="uid://bmcti7x8kjdhq" path="res://scenes/joystick.tscn" id="11_3v2ag"]
 [ext_resource type="Texture2D" uid="uid://b6nt3twkiyjoh" path="res://icon.svg" id="11_d2wvv"]
+
+[sub_resource type="Gradient" id="Gradient_3v2ag"]
+colors = PackedColorArray(0, 0, 0, 0, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_jej6c"]
+gradient = SubResource("Gradient_3v2ag")
+width = 500
+height = 650
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_y4r1p"]
 radius = 4.0
@@ -528,16 +536,32 @@ jumpComponent = NodePath("JumpComponent")
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 106.0
-offset_top = -106.0
-offset_right = 106.0
-offset_bottom = -106.0
+offset_left = 150.0
+offset_top = -150.0
+offset_right = 150.0
+offset_bottom = -150.0
 grow_vertical = 0
 scale = Vector2(10, 10)
 
 [node name="Joystick" parent="CanvasLayer/HBoxContainer" instance=ExtResource("11_3v2ag")]
-visible = false
 layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 8
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="CanvasLayer/HBoxContainer2"]
+position = Vector2(-460, -608)
+texture_normal = SubResource("GradientTexture2D_jej6c")
+action = "up"
 
 [node name="AreaDetector" type="Area2D" parent="."]
 
@@ -561,6 +585,7 @@ shape = SubResource("CapsuleShape2D_0rt71")
 sprite = NodePath("../AnimatedSprite2D")
 
 [node name="JumpComponent" parent="." instance=ExtResource("7_lma5f")]
+jumpVelocity = -300.0
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
 replication_config = SubResource("SceneReplicationConfig_lma5f")
