@@ -10,6 +10,7 @@ var udp: PacketPeerUDP
 var timer: Timer
 var peer: ENetMultiplayerPeer
 var hostFlag: bool = false 
+var startPressed: bool = false
 
 signal hostFound(ip:String, port:int)
 
@@ -102,3 +103,6 @@ func updateFlag(newMainFlag:String) -> void:
 	print("Update the flag holder to : ", mainFlag)
 	mainFlag = newMainFlag
 	
+@rpc("any_peer")
+func startGame(pressed:bool):
+	startPressed = pressed

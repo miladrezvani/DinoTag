@@ -10,7 +10,9 @@ func _process(delta: float) -> void:
 		status.text = "Connecting..."
 	else:
 		status.text = "Disconnected"
-	
+
+	if NetworkHandler.startPressed:
+		get_tree().change_scene_to_file("res://scenes/map/theJailOfAzkaban.tscn")
 
 func _on_back_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/menu/main.tscn")
