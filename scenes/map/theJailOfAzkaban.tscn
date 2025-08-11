@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=4 uid="uid://cob2kw6q40pv0"]
 
 [ext_resource type="Texture2D" uid="uid://ckusjwyhxf71j" path="res://assets/maps/cavesofgallet_tiles.png" id="1_gkf3x"]
-[ext_resource type="Script" uid="uid://cj1f7fgnkl58w" path="res://scripts/multiplayer_spawner.gd" id="2_vfxkc"]
+[ext_resource type="Script" uid="uid://cj1f7fgnkl58w" path="res://scripts/multiplayerSpawner.gd" id="2_vfxkc"]
 [ext_resource type="PackedScene" uid="uid://bgfm78ircoc56" path="res://scenes/player.tscn" id="3_h0a5d"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gkf3x"]

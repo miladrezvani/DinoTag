@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bgfm78ircoc56" path="res://scenes/player.tscn" id="1_j2fkg"]
 [ext_resource type="Script" uid="uid://cgvb48vesijye" path="res://scripts/map_1.gd" id="1_ltmjf"]
-[ext_resource type="Script" uid="uid://cj1f7fgnkl58w" path="res://scripts/multiplayer_spawner.gd" id="2_ltmjf"]
+[ext_resource type="Script" uid="uid://cj1f7fgnkl58w" path="res://scripts/multiplayerSpawner.gd" id="2_ltmjf"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_j2fkg"]
 normal = Vector2(-0.0192272, -0.999815)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://ds8x6oe3f5qir"]
+[gd_scene load_steps=8 format=3 uid="uid://ds8x6oe3f5qir"]
 
 [ext_resource type="Script" uid="uid://be88c6rj4l8g3" path="res://scripts/joinMenu.gd" id="1_t0nfr"]
 [ext_resource type="PackedScene" uid="uid://cx551yw7quygb" path="res://scenes/menu/characterSelection.tscn" id="2_71f3q"]
@@ -10,6 +10,9 @@ border_width_top = 10
 border_width_right = 10
 border_width_bottom = 10
 border_color = Color(0.898039, 0.670588, 0.239216, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_71f3q"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t0nfr"]
 bg_color = Color(0.627451, 0.262745, 0.270588, 1)
@@ -65,6 +68,7 @@ offset_left = -71.0
 offset_bottom = 70.0
 grow_horizontal = 0
 theme_override_font_sizes/font_size = 38
+theme_override_styles/focus = SubResource("StyleBoxFlat_71f3q")
 theme_override_styles/hover = SubResource("StyleBoxFlat_t0nfr")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_8uup4")
 theme_override_styles/normal = SubResource("StyleBoxFlat_v0upx")

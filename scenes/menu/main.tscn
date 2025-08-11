@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dcbv8pq4fteko"]
+[gd_scene load_steps=10 format=3 uid="uid://dcbv8pq4fteko"]
 
 [ext_resource type="Script" uid="uid://b1ilttisngpj6" path="res://scripts/mainMenu.gd" id="1_rrmte"]
 
@@ -9,6 +9,9 @@ border_width_top = 10
 border_width_right = 10
 border_width_bottom = 10
 border_color = Color(0.898039, 0.670588, 0.239216, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gmxck"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r8hr5"]
 bg_color = Color(0.262745, 0.490196, 0.627451, 1)
@@ -35,6 +38,9 @@ corner_radius_bottom_left = 10
 shadow_color = Color(0, 0, 0, 0.219608)
 shadow_size = 5
 shadow_offset = Vector2(-2, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ec7jh"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ynvfx"]
 bg_color = Color(0.627451, 0.262745, 0.270588, 1)
@@ -127,6 +133,7 @@ theme_override_constants/separation = 2
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 38
+theme_override_styles/focus = SubResource("StyleBoxFlat_gmxck")
 theme_override_styles/hover = SubResource("StyleBoxFlat_r8hr5")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_r8hr5")
 theme_override_styles/normal = SubResource("StyleBoxFlat_g5gd7")
@@ -136,6 +143,7 @@ text = "Host"
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 38
+theme_override_styles/focus = SubResource("StyleBoxFlat_ec7jh")
 theme_override_styles/hover = SubResource("StyleBoxFlat_ynvfx")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_box2j")
 theme_override_styles/normal = SubResource("StyleBoxFlat_rrmte")
