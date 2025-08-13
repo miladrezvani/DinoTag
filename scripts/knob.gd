@@ -23,7 +23,6 @@ func _process(delta: float) -> void:
 	else:
 		global_position = lerp(global_position, joystick.global_position, delta*10)
 		joystick.posVector = Vector2(0,0)
-	print(joystick.posVector)
 
 func calculateVector():
 	if abs((global_position.x - joystick.global_position.x)) >= deadZone:

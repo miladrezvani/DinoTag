@@ -7,7 +7,7 @@ func _ready() -> void:
 		var players = multiplayer.get_peers()
 		for id in players:
 			spawnPlayer(id)
-	spawnPlayer(1)
+	spawnPlayer(multiplayer.get_unique_id())
 	
 func spawnPlayer(id: int) -> void:
 	if !multiplayer.is_server(): return

@@ -544,6 +544,7 @@ grow_vertical = 0
 scale = Vector2(10, 10)
 
 [node name="Joystick" parent="CanvasLayer/HBoxContainer" instance=ExtResource("11_3v2ag")]
+visible = false
 layout_mode = 2
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer"]
@@ -563,6 +564,30 @@ position = Vector2(-460, -608)
 texture_normal = SubResource("GradientTexture2D_jej6c")
 action = "up"
 
+[node name="Time" type="Label" parent="CanvasLayer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 20
+
+[node name="WaitTimer" type="Label" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 104
+
 [node name="AreaDetector" type="Area2D" parent="."]
 
 [node name="Collision" type="CollisionShape2D" parent="AreaDetector"]
@@ -570,7 +595,7 @@ shape = SubResource("CapsuleShape2D_y4r1p")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ih1m1")
-animation = &"tard_run"
+animation = &"tard_idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_0rt71")
@@ -600,4 +625,22 @@ position = Vector2(0, -11)
 scale = Vector2(0.03125, 0.03125)
 texture = ExtResource("11_d2wvv")
 
+[node name="Timer" type="Timer" parent="."]
+process_callback = 0
+wait_time = 5.0
+one_shot = true
+
+[node name="WaitTimer" type="Timer" parent="."]
+process_callback = 0
+wait_time = 3.0
+one_shot = true
+
+[node name="EndTimer" type="Timer" parent="."]
+process_callback = 0
+wait_time = 3.0
+one_shot = true
+
 [connection signal="area_exited" from="AreaDetector" to="." method="_on_area_detector_area_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="WaitTimer" to="." method="_on_wait_timer_timeout"]
+[connection signal="timeout" from="EndTimer" to="." method="_on_end_timer_timeout"]

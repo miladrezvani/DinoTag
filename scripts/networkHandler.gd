@@ -11,6 +11,7 @@ var timer: Timer
 var peer: ENetMultiplayerPeer
 var hostFlag: bool = false 
 var startPressed: bool = false
+var setTimer: float = 90
 
 signal hostFound(ip:String, port:int)
 
@@ -90,6 +91,21 @@ func onHostFound(ip:String, port:int):
 		return
 	multiplayer.multiplayer_peer = peer
 	print("Connected to server at %s:%d" % [ip, port])
+	
+@rpc("any_peer","call_local")
+func resetConnection() -> void:
+	if peer:
+		multiplayer.multiplayer_peer = null
+		peer = null
+		hostFlag = false
+		mainFlag = "1"
+		startPressed = false
+		setTimer = 90
+		
+@rpc("any_peer","call_local")
+func changeScene() -> void:
+	get_tree().change_scene_to_file("res://scenes/menu/main.tscn")
+	rpc("resetConnection")
 
 @rpc("any_peer")
 func handleFlag(playerFlag:bool, otherPlayerFlag:bool, player:String, otherPlayer:String):
@@ -106,3 +122,7 @@ func updateFlag(newMainFlag:String) -> void:
 @rpc("any_peer")
 func startGame(pressed:bool):
 	startPressed = pressed
+	
+@rpc("any_peer","call_local")
+func updateTimer(timer:float):
+	setTimer = timer

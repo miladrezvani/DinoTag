@@ -1,5 +1,8 @@
 extends Control
 
+func _ready() -> void:
+	if multiplayer.has_multiplayer_peer():
+		NetworkHandler.rpc("resetConnection")
 
 func _on_host_pressed() -> void:
 	NetworkHandler.startServer()
