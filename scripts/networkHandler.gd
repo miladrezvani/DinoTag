@@ -12,6 +12,7 @@ var peer: ENetMultiplayerPeer
 var hostFlag: bool = false 
 var startPressed: bool = false
 var setTimer: float = 90
+var setMap: String = "res://scenes/map/theJailOfAzkaban.tscn"
 
 signal hostFound(ip:String, port:int)
 
@@ -102,7 +103,7 @@ func resetConnection() -> void:
 		startPressed = false
 		setTimer = 90
 		
-@rpc("any_peer","call_local")
+@rpc("any_peer", "call_local")
 func changeScene() -> void:
 	get_tree().change_scene_to_file("res://scenes/menu/main.tscn")
 	rpc("resetConnection")
@@ -123,6 +124,11 @@ func updateFlag(newMainFlag:String) -> void:
 func startGame(pressed:bool):
 	startPressed = pressed
 	
-@rpc("any_peer","call_local")
+@rpc("any_peer", "call_local")
 func updateTimer(timer:float):
 	setTimer = timer
+
+@rpc("any_peer", "call_local")
+func updateMap(newMap:String):
+	setMap = newMap
+	

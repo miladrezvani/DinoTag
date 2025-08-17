@@ -1,6 +1,7 @@
-[gd_scene load_steps=21 format=3 uid="uid://dhm5dlyn1ie2m"]
+[gd_scene load_steps=26 format=3 uid="uid://dhm5dlyn1ie2m"]
 
 [ext_resource type="Script" uid="uid://cr6hgus04mcbw" path="res://scripts/hostMenu.gd" id="1_bepqs"]
+[ext_resource type="Texture2D" uid="uid://d0tck07jk2447" path="res://assets/maps/Button-maps.png" id="2_8rdf3"]
 [ext_resource type="PackedScene" uid="uid://cx551yw7quygb" path="res://scenes/menu/characterSelection.tscn" id="2_pa6ly"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3h1cm"]
@@ -199,6 +200,23 @@ shadow_color = Color(0, 0, 0, 0.219608)
 shadow_size = 5
 shadow_offset = Vector2(-2, 2)
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yy554"]
+texture = ExtResource("2_8rdf3")
+region_rect = Rect2(0, 0, 24, 24)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0rx4c"]
+texture = ExtResource("2_8rdf3")
+region_rect = Rect2(24, 0, 24, 24)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vwhbu"]
+texture = ExtResource("2_8rdf3")
+region_rect = Rect2(48, 0, 24, 24)
+modulate_color = Color(1, 1, 1, 0.784314)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8rdf3"]
+texture = ExtResource("2_8rdf3")
+region_rect = Rect2(48, 0, 24, 24)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yy554"]
 bg_color = Color(0.301961, 0.572549, 0.737255, 1)
 border_width_left = 4
@@ -278,6 +296,13 @@ offset_bottom = 174.0
 grow_horizontal = 0
 theme_override_constants/separation = 10
 
+[node name="Timer" type="Label" parent="VBoxTimer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Timer"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxTimer"]
 layout_mode = 2
 size_flags_vertical = 3
@@ -356,6 +381,53 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_pa6ly")
 theme_override_styles/normal = SubResource("StyleBoxFlat_8rdf3")
 text = "240"
 
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -250.0
+offset_top = 20.0
+offset_right = 250.0
+offset_bottom = 345.0
+grow_horizontal = 2
+
+[node name="Maps" type="Label" parent="VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Maps
+"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 5
+
+[node name="TheJailOfAzkaban" type="Button" parent="VBoxContainer2/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/focus = SubResource("StyleBoxTexture_yy554")
+theme_override_styles/hover = SubResource("StyleBoxTexture_yy554")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_yy554")
+theme_override_styles/normal = SubResource("StyleBoxTexture_yy554")
+
+[node name="ArrakeenSand" type="Button" parent="VBoxContainer2/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/focus = SubResource("StyleBoxTexture_0rx4c")
+theme_override_styles/hover = SubResource("StyleBoxTexture_0rx4c")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_0rx4c")
+theme_override_styles/normal = SubResource("StyleBoxTexture_0rx4c")
+
+[node name="WoodenMaze" type="Button" parent="VBoxContainer2/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/focus = SubResource("StyleBoxTexture_vwhbu")
+theme_override_styles/hover = SubResource("StyleBoxTexture_8rdf3")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_vwhbu")
+theme_override_styles/normal = SubResource("StyleBoxTexture_8rdf3")
+
 [node name="Panel2" type="Panel" parent="."]
 layout_mode = 1
 anchors_preset = 9
@@ -395,3 +467,6 @@ scale = Vector2(0.75, 0.75)
 [connection signal="pressed" from="VBoxTimer/HBoxContainer2/timer180" to="." method="_on_timer_180_pressed"]
 [connection signal="pressed" from="VBoxTimer/HBoxContainer3/timer210" to="." method="_on_timer_210_pressed"]
 [connection signal="pressed" from="VBoxTimer/HBoxContainer3/timer240" to="." method="_on_timer_240_pressed"]
+[connection signal="pressed" from="VBoxContainer2/HBoxContainer/TheJailOfAzkaban" to="." method="_on_the_jail_of_azkaban_pressed"]
+[connection signal="pressed" from="VBoxContainer2/HBoxContainer/ArrakeenSand" to="." method="_on_arrakeen_sand_pressed"]
+[connection signal="pressed" from="VBoxContainer2/HBoxContainer/WoodenMaze" to="." method="_on_wooden_maze_pressed"]
