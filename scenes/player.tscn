@@ -1,4 +1,4 @@
-[gd_scene load_steps=75 format=3 uid="uid://bgfm78ircoc56"]
+[gd_scene load_steps=79 format=3 uid="uid://bgfm78ircoc56"]
 
 [ext_resource type="Texture2D" uid="uid://8g0ih0eo3yle" path="res://assets/players/DinoSprites - doux.png" id="1_r7o6q"]
 [ext_resource type="PackedScene" uid="uid://wegp82yyspj2" path="res://scenes/components/gravityComponents.tscn" id="3_0nhcl"]
@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://5lur5mwisp6f" path="res://scenes/components/animationComponent.tscn" id="6_anauh"]
 [ext_resource type="PackedScene" uid="uid://ddohs86ov35dm" path="res://scenes/components/jumpComponent.tscn" id="7_lma5f"]
 [ext_resource type="PackedScene" uid="uid://bmcti7x8kjdhq" path="res://scenes/joystick.tscn" id="11_3v2ag"]
-[ext_resource type="Texture2D" uid="uid://b6nt3twkiyjoh" path="res://icon.svg" id="11_d2wvv"]
+[ext_resource type="Texture2D" uid="uid://bm71kgiqlsqqw" path="res://assets/flag/Flag.png" id="12_3v2ag"]
 
 [sub_resource type="Gradient" id="Gradient_3v2ag"]
 colors = PackedColorArray(0, 0, 0, 0, 1, 1, 1, 0)
@@ -521,6 +521,35 @@ properties/4/path = NodePath("Flag:visible")
 properties/4/spawn = true
 properties/4/replication_mode = 1
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_6e8lb"]
+atlas = ExtResource("12_3v2ag")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2gdjj"]
+atlas = ExtResource("12_3v2ag")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sc3ue"]
+atlas = ExtResource("12_3v2ag")
+region = Rect2(48, 0, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lxlsd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6e8lb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2gdjj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sc3ue")
+}],
+"loop": true,
+"name": &"holder",
+"speed": 5.0
+}]
+
 [node name="player" type="CharacterBody2D" node_paths=PackedStringArray("gravityComponent", "inputComponent", "movementComponent", "animationComponent", "jumpComponent")]
 collision_mask = 2
 script = ExtResource("3_uc3qm")
@@ -619,11 +648,14 @@ replication_config = SubResource("SceneReplicationConfig_lma5f")
 zoom = Vector2(4, 4)
 limit_smoothed = true
 
-[node name="Flag" type="Sprite2D" parent="."]
+[node name="Flag" type="AnimatedSprite2D" parent="."]
 visible = false
 position = Vector2(0, -11)
-scale = Vector2(0.03125, 0.03125)
-texture = ExtResource("11_d2wvv")
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_lxlsd")
+animation = &"holder"
+autoplay = "holder"
+frame_progress = 0.286349
 
 [node name="Timer" type="Timer" parent="."]
 process_callback = 0

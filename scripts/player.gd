@@ -9,7 +9,7 @@ extends CharacterBody2D
 @export var jumpComponent: JumpComponent
 
 @onready var camera: Camera2D = $Camera2D
-@onready var flag: Sprite2D = $Flag
+@onready var flag: AnimatedSprite2D = $Flag
 @onready var joystick: Control = $CanvasLayer/HBoxContainer/Joystick
 @onready var timer: Timer = $Timer
 @onready var time: Label = $CanvasLayer/Time
