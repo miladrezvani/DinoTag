@@ -45,16 +45,6 @@ func _physics_process(delta: float) -> void:
 	
 	move_and_slide()
 
-
-func _on_area_detector_area_exited(area: Area2D) -> void:
-	var otherCharacter = area.get_parent() as CharacterBody2D
-	if otherCharacter == null:
-		print("There is no other player")
-		
-	if flag.visible or otherCharacter.flag.visible:
-		NetworkHandler.rpc("handleFlag",self.flag.visible, otherCharacter.flag.visible, self.name, otherCharacter.name)
-
-
 func _on_timer_timeout() -> void:
 	if !is_multiplayer_authority(): return
 	joystick.visible = false
@@ -75,8 +65,15 @@ func _on_end_timer_timeout() -> void:
 	if multiplayer.is_server():
 		NetworkHandler.rpc("changeScene")
 
-
 @rpc("any_peer")
 func switchCameraToLoser() -> void:
 	camera.make_current()
 	
+
+func _on_area_detector_area_entered(area: Area2D) -> void:
+	var otherCharacter = area.get_parent() as CharacterBody2D
+	if otherCharacter == null:
+		print("There is no other player")
+		
+	if flag.visible or otherCharacter.flag.visible:
+		NetworkHandler.rpc("handleFlag",self.flag.visible, otherCharacter.flag.visible, self.name, otherCharacter.name)

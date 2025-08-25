@@ -103,7 +103,7 @@ func resetConnection() -> void:
 		startPressed = false
 		setTimer = 90
 		
-@rpc("any_peer", "call_local")
+@rpc("any_peer","call_local")
 func changeScene() -> void:
 	get_tree().change_scene_to_file("res://scenes/menu/main.tscn")
 	rpc("resetConnection")
@@ -115,7 +115,7 @@ func handleFlag(playerFlag:bool, otherPlayerFlag:bool, player:String, otherPlaye
 	else:
 		rpc("updateFlag", player)
 		
-@rpc("any_peer")
+@rpc("any_peer","call_local")
 func updateFlag(newMainFlag:String) -> void:
 	print("Update the flag holder to : ", mainFlag)
 	mainFlag = newMainFlag
@@ -124,11 +124,11 @@ func updateFlag(newMainFlag:String) -> void:
 func startGame(pressed:bool):
 	startPressed = pressed
 	
-@rpc("any_peer", "call_local")
+@rpc("any_peer","call_local")
 func updateTimer(timer:float):
 	setTimer = timer
 
-@rpc("any_peer", "call_local")
+@rpc("any_peer","call_local")
 func updateMap(newMap:String):
 	setMap = newMap
 	
