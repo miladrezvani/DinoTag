@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://ds8x6oe3f5qir"]
+[gd_scene load_steps=9 format=3 uid="uid://ds8x6oe3f5qir"]
 
 [ext_resource type="Script" uid="uid://be88c6rj4l8g3" path="res://scripts/joinMenu.gd" id="1_t0nfr"]
 [ext_resource type="PackedScene" uid="uid://cx551yw7quygb" path="res://scenes/menu/characterSelection.tscn" id="2_71f3q"]
+[ext_resource type="FontFile" uid="uid://cfpsvwijrijkw" path="res://assets/fonts/BirchLeaf.ttf" id="2_aumyt"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kvpep"]
 bg_color = Color(0.992157, 0.780392, 0.376471, 1)
@@ -87,7 +88,10 @@ offset_right = 20.0
 offset_bottom = -35.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_font_sizes/font_size = 20
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.0980392)
+theme_override_fonts/font = ExtResource("2_aumyt")
+theme_override_font_sizes/font_size = 30
 
 [node name="CharacterSelection" parent="." instance=ExtResource("2_71f3q")]
 layout_mode = 1

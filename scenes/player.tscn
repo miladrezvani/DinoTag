@@ -1,7 +1,8 @@
-[gd_scene load_steps=79 format=3 uid="uid://bgfm78ircoc56"]
+[gd_scene load_steps=82 format=3 uid="uid://bgfm78ircoc56"]
 
 [ext_resource type="Texture2D" uid="uid://8g0ih0eo3yle" path="res://assets/players/DinoSprites - doux.png" id="1_r7o6q"]
 [ext_resource type="PackedScene" uid="uid://wegp82yyspj2" path="res://scenes/components/gravityComponents.tscn" id="3_0nhcl"]
+[ext_resource type="FontFile" uid="uid://cfpsvwijrijkw" path="res://assets/fonts/BirchLeaf.ttf" id="3_jej6c"]
 [ext_resource type="Texture2D" uid="uid://bifsfnht7aptu" path="res://assets/players/DinoSprites - mort.png" id="3_smehm"]
 [ext_resource type="Script" uid="uid://c2m6nv4sf8i1n" path="res://scripts/player.gd" id="3_uc3qm"]
 [ext_resource type="PackedScene" uid="uid://m7mq1pwo6t1b" path="res://scenes/components/inputComponent.tscn" id="4_uc3qm"]
@@ -21,8 +22,20 @@ gradient = SubResource("Gradient_3v2ag")
 width = 500
 height = 650
 
+[sub_resource type="LabelSettings" id="LabelSettings_f1ej7"]
+font = ExtResource("3_jej6c")
+font_size = 32
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_jej6c"]
+font = ExtResource("3_jej6c")
+font_size = 104
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_y4r1p"]
-radius = 4.0
+radius = 5.0
 height = 16.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uc3qm"]
@@ -602,6 +615,7 @@ offset_right = 20.0
 offset_bottom = 23.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 20
+label_settings = SubResource("LabelSettings_f1ej7")
 
 [node name="WaitTimer" type="Label" parent="CanvasLayer"]
 anchors_preset = 8
@@ -615,7 +629,7 @@ offset_right = 20.0
 offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 104
+label_settings = SubResource("LabelSettings_jej6c")
 
 [node name="AreaDetector" type="Area2D" parent="."]
 
