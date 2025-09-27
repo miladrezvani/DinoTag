@@ -1,8 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://bmcti7x8kjdhq"]
+[gd_scene load_steps=6 format=3 uid="uid://bmcti7x8kjdhq"]
 
 [ext_resource type="Script" uid="uid://dslul0eyyuro8" path="res://scripts/joystick.gd" id="1_m03u7"]
 [ext_resource type="Texture2D" uid="uid://05dvk1m8l7yr" path="res://assets/joystick/joystick.png" id="2_luu5j"]
 [ext_resource type="Script" uid="uid://cddet2md53r58" path="res://scripts/knob.gd" id="3_g1lyw"]
+
+[sub_resource type="Gradient" id="Gradient_3v2ag"]
+colors = PackedColorArray(0, 0, 0, 0, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_m03u7"]
+gradient = SubResource("Gradient_3v2ag")
+width = 48
+height = 48
 
 [node name="Joystick" type="Control"]
 layout_mode = 3
@@ -21,13 +29,9 @@ region_enabled = true
 region_rect = Rect2(24, 0, 24, 24)
 script = ExtResource("3_g1lyw")
 
-[node name="Button" type="Button" parent="."]
-self_modulate = Color(1, 1, 1, 0)
-layout_mode = 0
-offset_left = -10.0
-offset_top = -10.0
-offset_right = 10.0
-offset_bottom = 10.0
+[node name="Button" type="TouchScreenButton" parent="."]
+position = Vector2(-24, -24)
+texture_normal = SubResource("GradientTexture2D_m03u7")
 
-[connection signal="button_down" from="Button" to="knob" method="_on_button_button_down"]
-[connection signal="button_up" from="Button" to="knob" method="_on_button_button_up"]
+[connection signal="pressed" from="Button" to="knob" method="_on_button_pressed"]
+[connection signal="released" from="Button" to="knob" method="_on_button_released"]
