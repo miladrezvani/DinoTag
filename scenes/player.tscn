@@ -1,4 +1,4 @@
-[gd_scene load_steps=82 format=3 uid="uid://bgfm78ircoc56"]
+[gd_scene load_steps=83 format=3 uid="uid://bgfm78ircoc56"]
 
 [ext_resource type="Texture2D" uid="uid://8g0ih0eo3yle" path="res://assets/players/DinoSprites - doux.png" id="1_r7o6q"]
 [ext_resource type="PackedScene" uid="uid://wegp82yyspj2" path="res://scenes/components/gravityComponents.tscn" id="3_0nhcl"]
@@ -29,6 +29,12 @@ outline_size = 5
 outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_jej6c"]
+font = ExtResource("3_jej6c")
+font_size = 104
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_oprun"]
 font = ExtResource("3_jej6c")
 font_size = 104
 outline_size = 5
@@ -602,6 +608,7 @@ grow_vertical = 0
 size_flags_horizontal = 8
 
 [node name="TouchScreenButton" type="TouchScreenButton" parent="CanvasLayer/HBoxContainer2"]
+visible = false
 position = Vector2(-460, -608)
 texture_normal = SubResource("GradientTexture2D_jej6c")
 action = "up"
@@ -631,6 +638,20 @@ grow_horizontal = 2
 grow_vertical = 2
 label_settings = SubResource("LabelSettings_jej6c")
 
+[node name="WinorLose" type="Label" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -163.0
+offset_right = 20.0
+offset_bottom = -140.0
+grow_horizontal = 2
+grow_vertical = 2
+label_settings = SubResource("LabelSettings_oprun")
+
 [node name="AreaDetector" type="Area2D" parent="."]
 
 [node name="Collision" type="CollisionShape2D" parent="AreaDetector"]
@@ -638,7 +659,7 @@ shape = SubResource("CapsuleShape2D_y4r1p")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ih1m1")
-animation = &"tard_idle"
+animation = &"vita_idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_0rt71")

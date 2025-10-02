@@ -93,7 +93,6 @@ func onHostFound(ip:String, port:int):
 	multiplayer.multiplayer_peer = peer
 	print("Connected to server at %s:%d" % [ip, port])
 	
-@rpc("any_peer","call_local")
 func resetConnection() -> void:
 	if peer:
 		multiplayer.multiplayer_peer = null
@@ -106,7 +105,6 @@ func resetConnection() -> void:
 @rpc("any_peer","call_local")
 func changeScene() -> void:
 	get_tree().change_scene_to_file("res://scenes/menu/main.tscn")
-	rpc("resetConnection")
 
 @rpc("any_peer")
 func handleFlag(playerFlag:bool, otherPlayerFlag:bool, player:String, otherPlayer:String):
