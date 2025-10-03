@@ -11,8 +11,11 @@ config_version=5
 [application]
 
 config/name="DinoTag"
-run/main_scene="uid://dcbv8pq4fteko"
+run/main_scene="uid://duiks608kbcww"
 config/features=PackedStringArray("4.4", "Mobile")
+boot_splash/show_image=false
+boot_splash/fullsize=false
+boot_splash/use_filter=false
 config/icon="res://icon.svg"
 
 [autoload]
