@@ -681,6 +681,7 @@ replication_config = SubResource("SceneReplicationConfig_lma5f")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(4, 4)
+limit_bottom = 50
 limit_smoothed = true
 
 [node name="Flag" type="AnimatedSprite2D" parent="."]
